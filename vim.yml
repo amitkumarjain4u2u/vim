@@ -2,7 +2,6 @@
 - hosts: all
   remote_user: ansible
   become: yes
-  ask_pass: false
   host_key_checking: false
   become_method: sudo
   become_user: root
