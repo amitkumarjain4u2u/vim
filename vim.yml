@@ -4,3 +4,14 @@
     - yum: 
         name: vim
         state: latest:
+    - yum: 
+        name: httpd
+        state: latest
+    - service:
+        name: httpd
+        state: started
+        enabled: true
+     - service:
+        name: httpd
+        state: restarted
+        enabled: true
