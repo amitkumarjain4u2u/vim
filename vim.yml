@@ -11,7 +11,7 @@
         name: httpd
         state: started
         enabled: true
-     - service:
+    - service:
         name: httpd
         state: restarted
         enabled: true
