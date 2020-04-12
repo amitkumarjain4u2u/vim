@@ -6,24 +6,7 @@
         state: latest
     - yum: 
         name: httpd
-        state: latest
+        state: absent
     - yum: 
         name: firewalld
-        state: latest
-    - service: 
-        name: firewalld
-        state: started
-        enabled: true
-    - service:
-        name: httpd
-        state: started
-        enabled: true
-    - firewalld: 
-        service: http
-        immediately : true
-        permanent: true
-        state: enabled
-    - service:
-        name: httpd
-        state: restarted
-        enabled: true
+        state: absent
