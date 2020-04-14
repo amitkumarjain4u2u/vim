@@ -1,0 +1,27 @@
+---
+- hosts: localhost
+  vars:
+    region: us-west-1
+  tasks:
+    - name: Create simple security group
+      ec2_group:
+        name: webservers1
+        description: A security group for my current IP
+        region: "{{ region }}"
+        rules:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            cidr_ip: "{{ my_ip.content | replace('\n', '') }}/32"
+          - proto: tcp
+            from_port: 22
+            to_port: 22
+            cidr_ip: "{{ my_ip.content | replace('\n', '') }}/32"
+        rules_egress:
+          - proto: tcp
+            from_port: 80
+            to_port: 80
+            cidr_ip: 0.0.0.0/0
+      register: webserversgroup1
+    - debug:
+        var: webserversgroup1
