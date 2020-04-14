@@ -3,7 +3,7 @@
   vars:
     region: us-west-1
   tasks:
-     - name: Get my current IP address
+    - name: Get my current IP address
       uri:
         url: http://checkip.amazonaws.com/
         return_content: yes
